@@ -9,7 +9,9 @@ describe('getRenderOptions', () => {
       rootDir: '/Users/my/app/',
       srcDir: '/Users/my/app/src/',
     },
-    fs: {},
+    fs: null,
+    sys: null,
+    cache: null,
     diagnostics: [],
   };
   const dummyPlugin = () => null;
