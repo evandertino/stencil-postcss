@@ -1,21 +1,28 @@
-# @stencil/postcss
+# Extras
+
+Merged :-
+
+1. <https://github.com/ionic-team/stencil-postcss/pull/10/commits/040648a859c933b0f9d492240f5b87dca9b0db9a>
+
+## @stencil/postcss
 
 This package is used in order to integrate with postcss and all of its plugins.
 
 First, npm install within the project:
 
-```
+```bash
 npm install @stencil/postcss --save-dev
 ```
 
 Next, within the project's `stencil.config.js` file, import the plugin and add
 it to the `plugins` config. In the example below we're using the `autoprefixer` postcss plugin, so you'll also have to run:
 
-```
+```bash
 npm install autoprefixer @types/autoprefixer --save-dev
 ```
 
-#### stencil.config.ts
+## stencil.config.ts
+
 ```ts
 import { Config } from '@stencil/core';
 import { postcss } from '@stencil/postcss';
@@ -24,9 +31,9 @@ import * as autoprefixer from 'autoprefixer';
 export const config: Config = {
   plugins: [
     postcss({
-      plugins: [autoprefixer()]
-    })
-  ]
+      plugins: [autoprefixer()],
+    }),
+  ],
 };
 ```
 
@@ -46,11 +53,11 @@ exports.config = {
       plugins: [
         autoprefixer({
           browsers: ['last 6 versions'],
-          cascade: false
-        })
-      ]
-    })
-  ]
+          cascade: false,
+        }),
+      ],
+    }),
+  ],
 };
 ```
 
@@ -62,25 +69,26 @@ The `injectGlobalPaths` config is an array of paths that automatically get added
 exports.config = {
   plugins: [
     postcss({
-      injectGlobalPaths: [
-        'src/globals/variables.pcss',
-        'src/globals/mixins.pcss'
-      ]
-    })
-  ]
+      injectGlobalPaths: ['src/globals/variables.pcss', 'src/globals/mixins.pcss'],
+    }),
+  ],
 };
 ```
 
 Note that each of these files are always added to each component, so in most cases they shouldn't contain CSS because it'll get duplicated in each component. Instead, `injectGlobalPaths` should only be used for Sass variables, mixins and functions, but not contain any CSS.
 
+## Valid file extensions
+
+This plugin will only transpile files whose extensions are `.css`, `.pcss`, or `.postcss`.
+
 ## Related
 
-* [postcss](https://github.com/postcss/postcss)
-* [autoprefixer](https://github.com/postcss/autoprefixer)
-* [Stencil](https://stenciljs.com/)
-* [Stencil Worldwide Slack](https://stencil-worldwide.slack.com)
-* [Ionic Components](https://www.npmjs.com/package/@ionic/core)
-* [Ionicons](http://ionicons.com/)
+- [postcss](https://github.com/postcss/postcss)
+- [autoprefixer](https://github.com/postcss/autoprefixer)
+- [Stencil](https://stenciljs.com/)
+- [Stencil Worldwide Slack](https://stencil-worldwide.slack.com)
+- [Ionic Components](https://www.npmjs.com/package/@ionic/core)
+- [Ionicons](http://ionicons.com/)
 
 ## Contributing
 
